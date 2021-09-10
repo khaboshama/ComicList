@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Comic List</string>
+    <string name="message_error_no_internet">Please check your internet connection</string>
+    <string name="something_went_wrong">Something went wrong, please try again</string>
+    <string name="tab_comic_list">List</string>
+    <string name="tab_favorite_list">Favorite</string>
 </resources>
