@@ -1,6 +1,7 @@
 package com.khaled.comiclist.data.remote
 
 import com.khaled.comiclist.BuildConfig
+import com.khaled.comiclist.data.remote.endPoint.ComicApi
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -11,6 +12,8 @@ object RetrofitClient {
     private const val CONNECT_TIMEOUT = 15L
     private const val READ_WRITE_TIMEOUT = 10L
     private const val BASE_URL = "https://xkcd.com/"
+
+    val comicApi: ComicApi by lazy { getRetrofit().create(ComicApi::class.java) }
 
     private fun getRetrofit(): Retrofit {
         val builder = OkHttpClient.Builder()
