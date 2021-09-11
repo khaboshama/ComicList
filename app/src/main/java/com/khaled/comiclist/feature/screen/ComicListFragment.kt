@@ -60,7 +60,7 @@ class ComicListFragment : BaseFragment<ComicViewModel>() {
         comicsSkeleton = Skeleton.bind(comicRecyclerView)
             .shimmer(true)
             .adapter(comicsAdapter)
-            .count(8)
+            .count(SKELETON_ITEM)
             .color(R.color.skeleton_background)
             .load(R.layout.item_comic_skeleton)
             .show()
@@ -71,5 +71,6 @@ class ComicListFragment : BaseFragment<ComicViewModel>() {
 
     companion object {
         private const val SPAN_COUNT = 2
+        private const val SKELETON_ITEM = 8
     }
 }
