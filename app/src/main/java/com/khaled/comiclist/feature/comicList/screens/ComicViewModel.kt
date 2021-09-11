@@ -2,8 +2,6 @@ package com.khaled.comiclist.feature.comicList.screens
 
 import androidx.lifecycle.MutableLiveData
 import com.khaled.comiclist.common.BaseViewModel
-import com.khaled.comiclist.common.data.AppResult
-import com.khaled.comiclist.di.AppContext.applicationContext
 import com.khaled.comiclist.feature.comicList.module.Mapper.toComicItemView
 import com.khaled.comiclist.feature.comicList.module.useCase.GetComicsUseCase
 import com.khaled.comiclist.feature.comicList.module.view.ComicItemView
@@ -46,17 +44,11 @@ class ComicViewModel(
                     pageNumber++
                 },
                 onError = {
-                    error.value = getErrorMessage(it)
+                    error.value = getErrorMessage(it)!!
                     isComicsRequestFinished = true
                     showProgressBar.value = false
                 }
             )
         }
-    }
-
-    private fun getErrorMessage(error: AppResult.Error) = if (error.errorMessageRes != null) {
-        applicationContext.context.getString(error.errorMessageRes)
-    } else {
-        error.errorMessage
     }
 }

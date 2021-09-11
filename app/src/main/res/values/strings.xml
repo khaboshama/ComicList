@@ -5,4 +5,5 @@
     <string name="tab_comic_list">List</string>
     <string name="tab_favorite_list">Favorite</string>
     <string name="comic_list">Comic List</string>
+    <string name="item_is_not_found">Item is not found</string>
 </resources>

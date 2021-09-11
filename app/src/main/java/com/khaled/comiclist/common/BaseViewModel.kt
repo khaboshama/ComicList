@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.khaled.comiclist.common.data.AppResult
 import com.khaled.comiclist.common.data.HttpUtils
+import com.khaled.comiclist.di.AppContext
 import com.khaled.comiclist.utils.SingleLiveEvent
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
@@ -35,4 +36,10 @@ abstract class BaseViewModel : ViewModel() {
             is AppResult.Error -> onError?.invoke(appResult)
         }
     }
+    protected fun getErrorMessage(error: AppResult.Error) = if (error.errorMessageRes != null) {
+        AppContext.applicationContext.context.getString(error.errorMessageRes)
+    } else {
+        error.errorMessage
+    }
+
 }
