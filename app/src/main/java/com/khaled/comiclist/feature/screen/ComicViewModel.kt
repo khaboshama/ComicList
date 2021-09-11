@@ -19,10 +19,20 @@ class ComicViewModel(
         value = mutableListOf()
     }
 
-    init {
+    fun getNextComics() {
+        if (isComicsRequestFinished.not()) return
+        isComicsRequestFinished = true
+        getComics()
+    }
+
+    private fun getComics() {
         wrapBlockingOperation {
             handleResult(
-                getComicsUseCase.invoke(pageNumber, limit),
+                getComicsUseCase.invoke(
+                    pageNumber = pageNumber,
+                    limit = limit,
+                    lastItemId = comicList.value?.lastOrNull()?.number
+                ),
                 onSuccess = {
                     if (it.data.size < limit) isAllDataLoaded = true
                     comicList.value?.addAll(it.data.map { comic -> comic.toComicItemView() })
@@ -35,12 +45,6 @@ class ComicViewModel(
                 }
             )
         }
-    }
-
-    fun getNextComics() {
-        if (isComicsRequestFinished.not()) return
-        isComicsRequestFinished = true
-
     }
 
     private fun getErrorMessage(error: AppResult.Error) = if (error.errorMessageRes != null) {

@@ -1,9 +1,11 @@
 package com.khaled.comiclist.di
 
+import androidx.room.Room
 import com.khaled.comiclist.MainViewModel
 import com.khaled.comiclist.common.ApplicationContext
 import com.khaled.comiclist.common.IApplicationContext
 import com.khaled.comiclist.data.local.AppSharedPreference
+import com.khaled.comiclist.data.local.database.ComicsDatabase
 import com.khaled.comiclist.feature.module.data.ComicRepository
 import com.khaled.comiclist.feature.module.data.IComicRepository
 import com.khaled.comiclist.feature.module.useCase.GetComicsUseCase
@@ -36,6 +38,8 @@ object FeaturesKoinModules {
 
     private fun getDataSourceModule() = module {
         single { AppSharedPreference(get()) }
+        single { Room.databaseBuilder(get(), ComicsDatabase::class.java, ComicsDatabase.DATABASE_NAME).build() }
+        single { get<ComicsDatabase>().getComicsDao() }
     }
 
     private fun getAppHelperModule() = module {
