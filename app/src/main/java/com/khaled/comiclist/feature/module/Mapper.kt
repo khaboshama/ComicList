@@ -19,4 +19,11 @@ object Mapper {
         description = description,
         imageUrl = imageUrl
     )
+
+    fun ComicItem.toComic() = Comic(
+        number = number,
+        title = title,
+        description = description,
+        imageUrl = imageUrl
+    )
 }

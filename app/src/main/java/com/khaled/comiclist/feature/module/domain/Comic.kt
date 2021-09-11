@@ -5,9 +5,9 @@ import com.google.gson.annotations.SerializedName
 data class Comic(
     @SerializedName("num")
     val number: Int,
-    val title: String,
+    val title: String?,
     @SerializedName("alt")
-    val description: String,
+    val description: String?,
     @SerializedName("img")
-    val imageUrl: String
+    val imageUrl: String?
 )

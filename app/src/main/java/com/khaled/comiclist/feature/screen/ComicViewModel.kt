@@ -35,6 +35,7 @@ class ComicViewModel(
                 ),
                 onSuccess = {
                     if (it.data.size < limit) isAllDataLoaded = true
+                    if (comicList.value.isNullOrEmpty()) comicList.value = comicList.value
                     comicList.value?.addAll(it.data.map { comic -> comic.toComicItemView() })
                     isComicsRequestFinished = true
                     pageNumber++
