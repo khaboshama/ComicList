@@ -6,7 +6,7 @@
         android:icon="@drawable/ic_list"
         android:title="@string/tab_comic_list" />
     <item
-        android:id="@+id/favoriteFragment"
+        android:id="@+id/favoriteListFragment"
         android:enabled="true"
         android:icon="@drawable/ic_favorite_unselected"
         android:title="@string/tab_favorite_list" />

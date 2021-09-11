@@ -6,4 +6,5 @@
     <string name="tab_favorite_list">Favorite</string>
     <string name="comic_list">Comic List</string>
     <string name="item_is_not_found">Item is not found</string>
+    <string name="favorite_comic_list">Favorite List</string>
 </resources>

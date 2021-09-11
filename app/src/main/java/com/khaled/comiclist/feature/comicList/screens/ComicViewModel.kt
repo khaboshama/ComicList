@@ -34,7 +34,7 @@ class ComicViewModel(
                     lastItemId = comicList.value?.lastOrNull()?.number
                 ),
                 onSuccess = {
-                    if (it.data.size < limit) isAllDataLoaded = true
+                    if (it.data.isEmpty()) isAllDataLoaded = true
                     if (comicList.value.isNullOrEmpty()) {
                         comicList.value = mutableListOf()
                     }

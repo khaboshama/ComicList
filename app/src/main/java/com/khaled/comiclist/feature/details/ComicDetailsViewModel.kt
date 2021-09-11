@@ -15,7 +15,7 @@ class ComicDetailsViewModel(
         isUpdateComicFinished = false
         wrapBlockingOperation {
             handleResult(
-                updateComicFavoriteUseCase.invoke(
+                updateComicFavoriteUseCase(
                     comicNumber = comicItemLiveData.value!!.number,
                     isFavorite = comicItemLiveData.value!!.isFavorite.not()
                 ),

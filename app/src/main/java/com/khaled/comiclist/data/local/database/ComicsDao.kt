@@ -20,4 +20,7 @@ interface ComicsDao {
 
     @Query("UPDATE ComicItem set is_favorite = :isFavorite where number = :comicNumber")
     suspend fun updateComicFavorite(comicNumber: Int, isFavorite: Boolean): Int
+
+    @Query("SELECT * FROM ComicItem where is_favorite = 1 LIMIT :limit OFFSET :offset")
+    suspend fun getFavoriteComicsList(limit: Int, offset: Int): List<ComicItem>
 }

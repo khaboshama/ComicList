@@ -21,8 +21,20 @@
         tools:layout="@layout/fragment_comic_details">
         <argument
             android:name="comicItem"
-            app:nullable="false"
-            app:argType="com.khaled.comiclist.feature.comicList.module.view.ComicItemView" />
+            app:argType="com.khaled.comiclist.feature.comicList.module.view.ComicItemView"
+            app:nullable="false" />
+        <action
+            android:id="@+id/action_comicDetailsFragment_to_favoriteListFragment"
+            app:destination="@id/favoriteListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteListFragment"
+        android:name="com.khaled.comiclist.feature.favoriteList.FavoriteListFragment"
+        android:label="FavoriteListFragment"
+        tools:layout="@layout/fragment_favorite_comic_list">
+        <action
+            android:id="@+id/action_favoriteListFragment_to_comicDetailsFragment"
+            app:destination="@id/comicDetailsFragment" />
     </fragment>
 
 </navigation>
