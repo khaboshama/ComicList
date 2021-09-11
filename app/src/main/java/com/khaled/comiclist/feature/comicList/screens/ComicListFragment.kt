@@ -1,10 +1,11 @@
-package com.khaled.comiclist.feature.screen
+package com.khaled.comiclist.feature.comicList.screens
 
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.ethanhua.skeleton.Skeleton
 import com.ethanhua.skeleton.SkeletonScreen
 import com.khaled.comiclist.R
@@ -18,7 +19,9 @@ class ComicListFragment : BaseFragment<ComicViewModel>() {
     private var binding: FragmentComicListBinding? = null
     private var comicsSkeleton: SkeletonScreen? = null
     private val comicsAdapter = ComicsAdapter {
-
+        if (isDestinationFound(R.id.comicListFragment)) {
+            findNavController().navigate(ComicListFragmentDirections.actionComicListFragmentToComicDetailsFragment(it))
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

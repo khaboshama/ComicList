@@ -1,9 +1,9 @@
-package com.khaled.comiclist.feature.screen
+package com.khaled.comiclist.feature.comicList.screens
 
 import android.view.View
 import com.bumptech.glide.Glide
 import com.khaled.comiclist.common.BaseAdapter
-import com.khaled.comiclist.feature.module.view.ComicItemView
+import com.khaled.comiclist.feature.comicList.module.view.ComicItemView
 import kotlinx.android.synthetic.main.list_item_comic.view.*
 
 class ComicItemViewHolder(private val view: View, private val onItemClicked: (ComicItemView) -> Unit) :

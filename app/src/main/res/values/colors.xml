@@ -7,7 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
-    <color name="light_black">#cc000000</color>
+    <color name="light_black">#aa000000</color>
     <color name="skeleton_background">#A2DFDEDE</color>
     <color name="light_gray">#DFDFDF</color>
 </resources>

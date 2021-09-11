@@ -1,12 +1,12 @@
-package com.khaled.comiclist.feature.screen
+package com.khaled.comiclist.feature.comicList.screens
 
 import androidx.lifecycle.MutableLiveData
 import com.khaled.comiclist.common.BaseViewModel
 import com.khaled.comiclist.common.data.AppResult
 import com.khaled.comiclist.di.AppContext.applicationContext
-import com.khaled.comiclist.feature.module.Mapper.toComicItemView
-import com.khaled.comiclist.feature.module.useCase.GetComicsUseCase
-import com.khaled.comiclist.feature.module.view.ComicItemView
+import com.khaled.comiclist.feature.comicList.module.Mapper.toComicItemView
+import com.khaled.comiclist.feature.comicList.module.useCase.GetComicsUseCase
+import com.khaled.comiclist.feature.comicList.module.view.ComicItemView
 import com.khaled.comiclist.utils.SingleLiveEvent
 
 class ComicViewModel(
@@ -40,7 +40,7 @@ class ComicViewModel(
                     if (comicList.value.isNullOrEmpty()) {
                         comicList.value = mutableListOf()
                     }
-                    comicList.value?.addAll(it.data.map { comic -> comic.toComicItemView() })
+                    comicList.value?.addAll(it.data.map { comicItem -> comicItem.toComicItemView() })
                     isComicsRequestFinished = true
                     showProgressBar.value = false
                     pageNumber++

@@ -4,6 +4,7 @@ import android.app.Activity
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import org.koin.android.ext.android.getKoin
 import org.koin.androidx.viewmodel.ViewModelOwner
 import org.koin.androidx.viewmodel.koin.getViewModel
@@ -23,5 +24,8 @@ abstract class BaseFragment<ViewModel : BaseViewModel> : Fragment(), BaseView<Vi
     }
 
     override fun getCurrentActivity(): Activity = requireActivity()
+
+    protected fun isDestinationFound(currentFragmentId: Int) =
+        findNavController().currentDestination?.id == currentFragmentId
 
 }

@@ -6,8 +6,23 @@
     app:startDestination="@id/comicListFragment">
     <fragment
         android:id="@+id/comicListFragment"
-        android:name="com.khaled.comiclist.feature.screen.ComicListFragment"
+        android:name="com.khaled.comiclist.feature.comicList.screens.ComicListFragment"
         android:label="fragment_comic_list"
-        tools:layout="@layout/fragment_comic_list" />
+        tools:layout="@layout/fragment_comic_list">
+        <action
+            android:id="@+id/action_comicListFragment_to_comicDetailsFragment"
+            app:destination="@id/comicDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/comicDetailsFragment"
+        android:name="com.khaled.comiclist.feature.details.screens.ComicDetailsFragment"
+        android:label="ComicDetailsFragment"
+        tools:layout="@layout/fragment_comic_details">
+        <argument
+            android:name="comicItem"
+            app:nullable="false"
+            app:argType="com.khaled.comiclist.feature.comicList.module.view.ComicItemView" />
+    </fragment>
 
 </navigation>

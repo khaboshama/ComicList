@@ -1,6 +1,6 @@
 package com.khaled.comiclist.data.remote.endPoint
 
-import com.khaled.comiclist.feature.module.domain.Comic
+import com.khaled.comiclist.feature.comicList.module.domain.Comic
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path

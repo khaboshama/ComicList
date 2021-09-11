@@ -1,4 +1,4 @@
-package com.khaled.comiclist.feature.module.data
+package com.khaled.comiclist.feature.comicList.module.data
 
 import android.os.Parcel
 import android.os.Parcelable

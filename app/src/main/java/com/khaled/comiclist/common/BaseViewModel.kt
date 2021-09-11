@@ -26,13 +26,13 @@ abstract class BaseViewModel : ViewModel() {
     }
 
     fun <T> handleResult(
-        appResult: AppResult<T>,
-        onError: ((AppResult.Error) -> Unit),
+        appResult: AppResult<T>? = null,
+        onError: ((AppResult.Error) -> Unit)? = null,
         onSuccess: (AppResult.Success<T>) -> Unit
     ) {
         when (appResult) {
             is AppResult.Success<T> -> onSuccess(appResult)
-            is AppResult.Error -> onError(appResult)
+            is AppResult.Error -> onError?.invoke(appResult)
         }
     }
 }
