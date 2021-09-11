@@ -7,6 +7,7 @@ import com.khaled.comiclist.di.AppContext.applicationContext
 import com.khaled.comiclist.feature.module.Mapper.toComicItemView
 import com.khaled.comiclist.feature.module.useCase.GetComicsUseCase
 import com.khaled.comiclist.feature.module.view.ComicItemView
+import com.khaled.comiclist.utils.SingleLiveEvent
 
 class ComicViewModel(
     private val getComicsUseCase: GetComicsUseCase,
@@ -15,13 +16,14 @@ class ComicViewModel(
     private val limit = 10
     private var isAllDataLoaded = false
     private var isComicsRequestFinished = true
+    val showProgressBar = SingleLiveEvent<Boolean>()
     val comicList = MutableLiveData<MutableList<ComicItemView>>().apply {
-        value = mutableListOf()
     }
 
     fun getNextComics() {
-        if (isComicsRequestFinished.not()) return
-        isComicsRequestFinished = true
+        if (isComicsRequestFinished.not() || isAllDataLoaded) return
+        isComicsRequestFinished = false
+        if (comicList.value.isNullOrEmpty().not()) showProgressBar.value = true
         getComics()
     }
 
@@ -35,14 +37,18 @@ class ComicViewModel(
                 ),
                 onSuccess = {
                     if (it.data.size < limit) isAllDataLoaded = true
-                    if (comicList.value.isNullOrEmpty()) comicList.value = comicList.value
+                    if (comicList.value.isNullOrEmpty()) {
+                        comicList.value = mutableListOf()
+                    }
                     comicList.value?.addAll(it.data.map { comic -> comic.toComicItemView() })
                     isComicsRequestFinished = true
+                    showProgressBar.value = false
                     pageNumber++
                 },
                 onError = {
                     error.value = getErrorMessage(it)
                     isComicsRequestFinished = true
+                    showProgressBar.value = false
                 }
             )
         }
