@@ -6,6 +6,47 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/toolbar_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/primary_dark"
+            android:paddingTop="15dp"
+            android:paddingBottom="@dimen/_12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/icArrowBackImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_30dp"
+                android:paddingStart="@dimen/_16dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="0dp"
+                android:paddingBottom="4dp"
+                android:src="@drawable/ic_toolbar_back"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                style="@style/toolbarTitleTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16dp"
+                android:layout_marginEnd="@dimen/_10dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@string/comic_list"
+                android:textAlignment="viewStart"
+                app:layout_constraintBottom_toBottomOf="@+id/icArrowBackImageView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/icArrowBackImageView"
+                app:layout_constraintTop_toTopOf="@id/icArrowBackImageView" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/comicRecyclerView"
             android:layout_width="0dp"
@@ -15,15 +56,15 @@
             app:layout_constraintBottom_toTopOf="@id/paginationProgressBar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar_container"
             app:spanCount="2"
             tools:listitem="@layout/list_item_comic" />
 
         <ProgressBar
             android:id="@+id/paginationProgressBar"
             android:layout_width="0dp"
-            android:visibility="gone"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
