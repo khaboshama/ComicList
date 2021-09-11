@@ -2,7 +2,7 @@ package com.khaled.comiclist.data.local.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.khaled.comiclist.feature.module.data.ComicItem
+import com.khaled.comiclist.feature.comicList.module.data.ComicItem
 
 @Database(entities = [ComicItem::class], version = 1)
 abstract class ComicsDatabase : RoomDatabase() {

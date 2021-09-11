@@ -1,10 +1,10 @@
-package com.khaled.comiclist.feature.module.data
+package com.khaled.comiclist.feature.comicList.module.data
 
 import com.khaled.comiclist.common.data.AppResult
 import com.khaled.comiclist.common.data.HttpUtils
 import com.khaled.comiclist.data.local.database.ComicsDao
 import com.khaled.comiclist.data.remote.RetrofitClient
-import com.khaled.comiclist.feature.module.Mapper.toComicItem
+import com.khaled.comiclist.feature.comicList.module.Mapper.toComicItem
 import org.koin.java.KoinJavaComponent
 
 class ComicRepository : IComicRepository {

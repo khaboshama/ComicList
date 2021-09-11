@@ -1,11 +1,11 @@
-package com.khaled.comiclist.feature.screen
+package com.khaled.comiclist.feature.comicList.screens
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import com.khaled.comiclist.R
 import com.khaled.comiclist.common.BaseAdapter
-import com.khaled.comiclist.feature.module.view.ComicItemView
+import com.khaled.comiclist.feature.comicList.module.view.ComicItemView
 
 class ComicsAdapter(private val onItemClicked: (ComicItemView) -> Unit) :
     BaseAdapter<ComicItemView, ComicItemViewHolder>(diffCallback) {

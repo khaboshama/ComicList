@@ -4,7 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.khaled.comiclist.feature.module.data.ComicItem
+import com.khaled.comiclist.feature.comicList.module.data.ComicItem
 
 /**
  * Data Access Object for the comic table.

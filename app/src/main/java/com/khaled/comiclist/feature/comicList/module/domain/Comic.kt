@@ -1,4 +1,4 @@
-package com.khaled.comiclist.feature.module.domain
+package com.khaled.comiclist.feature.comicList.module.domain
 
 import com.google.gson.annotations.SerializedName
 
