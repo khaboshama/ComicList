@@ -40,7 +40,7 @@ class ComicViewModel(
                     if (comicList.value.isNullOrEmpty()) {
                         comicList.value = mutableListOf()
                     }
-                    comicList.value?.addAll(it.data.map { comic -> comic.toComicItemView() })
+                    comicList.value?.addAll(it.data.map { comicItem -> comicItem.toComicItemView() })
                     isComicsRequestFinished = true
                     showProgressBar.value = false
                     pageNumber++

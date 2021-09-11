@@ -6,21 +6,15 @@ import com.khaled.comiclist.feature.module.view.ComicItemView
 
 object Mapper {
 
-    fun Comic.toComicItemView() = ComicItemView(
+    fun ComicItem.toComicItemView() = ComicItemView(
         number = number,
         title = title,
         description = description,
-        imageUrl = imageUrl
+        imageUrl = imageUrl,
+        isFavorite = isFavorite
     )
 
     fun Comic.toComicItem() = ComicItem(
-        number = number,
-        title = title,
-        description = description,
-        imageUrl = imageUrl
-    )
-
-    fun ComicItem.toComic() = Comic(
         number = number,
         title = title,
         description = description,
