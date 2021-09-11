@@ -11,7 +11,7 @@ interface BaseView<ViewModel : BaseViewModel> {
     val loadingView: View?
 
     fun showErrorMessage(errorMessage: String) {
-        Toast.makeText(getCurrentActivity(), errorMessage, Toast.LENGTH_LONG).show()
+        Toast.makeText(getCurrentActivity(), errorMessage, Toast.LENGTH_SHORT).show()
     }
 
     fun getCurrentActivity(): Activity
