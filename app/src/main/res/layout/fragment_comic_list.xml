@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_16dp"
                 android:layout_marginEnd="@dimen/_10dp"
-                android:padding="@dimen/_10dp"
+                android:paddingHorizontal="10dp"
                 android:rotation="90"
                 android:src="@drawable/ic_search"
                 android:textAlignment="viewStart"
