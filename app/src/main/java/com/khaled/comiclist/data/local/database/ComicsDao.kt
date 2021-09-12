@@ -23,4 +23,7 @@ interface ComicsDao {
 
     @Query("SELECT * FROM ComicItem where is_favorite = 1 LIMIT :limit OFFSET :offset")
     suspend fun getFavoriteComicsList(limit: Int, offset: Int): List<ComicItem>
+
+    @Query("SELECT DISTINCT * FROM ComicItem where number like :query or title like :query LIMIT :limit OFFSET :offset")
+    suspend fun search(limit: Int, offset: Int, query: String): List<ComicItem>
 }

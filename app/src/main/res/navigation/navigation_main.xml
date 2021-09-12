@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_comicListFragment_to_comicDetailsFragment"
             app:destination="@id/comicDetailsFragment" />
+        <action
+            android:id="@+id/action_comicListFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
 
     <fragment
@@ -34,6 +37,15 @@
         tools:layout="@layout/fragment_favorite_comic_list">
         <action
             android:id="@+id/action_favoriteListFragment_to_comicDetailsFragment"
+            app:destination="@id/comicDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.khaled.comiclist.feature.search.SearchFragment"
+        android:label="SearchFragment"
+        tools:layout="@layout/fragment_search_list" >
+        <action
+            android:id="@+id/action_searchFragment_to_comicDetailsFragment"
             app:destination="@id/comicDetailsFragment" />
     </fragment>
 

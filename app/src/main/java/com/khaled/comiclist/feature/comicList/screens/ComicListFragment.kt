@@ -38,6 +38,11 @@ class ComicListFragment : BaseFragment<ComicViewModel>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupComicRecyclerView()
+        searchImageView.setOnClickListener {
+            if (isDestinationFound(R.id.comicListFragment)) {
+                findNavController().navigate(ComicListFragmentDirections.actionComicListFragmentToSearchFragment())
+            }
+        }
         viewModel.showProgressBar.observe(viewLifecycleOwner) {
             paginationProgressBar.visibility = if (it == true) View.VISIBLE else View.GONE
         }

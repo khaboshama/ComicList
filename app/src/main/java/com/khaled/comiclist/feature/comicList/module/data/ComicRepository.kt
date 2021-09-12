@@ -30,12 +30,17 @@ class ComicRepository : IComicRepository {
         }
     }
 
-    override suspend fun getFavoriteComics(pageNumber: Int, limit: Int, lastItemId: Int?): AppResult<List<ComicItem>> {
+    override suspend fun getFavoriteComics(pageNumber: Int, limit: Int): AppResult<List<ComicItem>> {
         val offset = ((pageNumber - 1) * limit)
         val comicItemList = comicsDao.getFavoriteComicsList(limit = limit, offset = offset)
         return AppResult.Success(comicItemList)
     }
 
+    override suspend fun search(pageNumber: Int, limit: Int, query: String): AppResult<List<ComicItem>> {
+        val offset = ((pageNumber - 1) * limit)
+        val comicItemList = comicsDao.search(limit = limit, offset = offset, query = "%$query%")
+        return AppResult.Success(comicItemList)
+    }
 
     private suspend fun sendComicRequest(lastItemId: Int?, limit: Int, pageNumber: Int): AppResult<List<ComicItem>> {
         val errorAppResult: AppResult.Error?

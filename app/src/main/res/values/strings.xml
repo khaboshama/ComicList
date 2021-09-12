@@ -9,4 +9,5 @@
     <string name="favorite_comic_list">Favorite List</string>
     <string name="share_link">Share link!</string>
     <string name="image_not_found">Image is not found</string>
+    <string name="search_by_title_or_number">search by name or number</string>
 </resources>

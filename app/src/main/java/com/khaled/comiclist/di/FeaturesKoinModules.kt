@@ -14,6 +14,8 @@ import com.khaled.comiclist.feature.details.ComicDetailsViewModel
 import com.khaled.comiclist.feature.details.module.UpdateComicFavoriteUseCase
 import com.khaled.comiclist.feature.favoriteList.FavoriteViewModel
 import com.khaled.comiclist.feature.favoriteList.GetFavoriteComicsUseCase
+import com.khaled.comiclist.feature.search.SearchUseCase
+import com.khaled.comiclist.feature.search.SearchViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.module.Module
@@ -34,6 +36,8 @@ object FeaturesKoinModules {
         add(getComicDetailsModule())
         // Favorite Comic screen
         add(getFavoriteComicModule())
+        // Search Comic screen
+        add(getSearchModule())
     }
 
     private fun getComicListModule() = module {
@@ -50,6 +54,11 @@ object FeaturesKoinModules {
     private fun getFavoriteComicModule() = module {
         factory { GetFavoriteComicsUseCase(get()) }
         viewModel { FavoriteViewModel(get()) }
+    }
+
+    private fun getSearchModule() = module {
+        factory { SearchUseCase(get()) }
+        viewModel { SearchViewModel(get()) }
     }
 
     private fun getMainModule() = module { viewModel { MainViewModel() } }

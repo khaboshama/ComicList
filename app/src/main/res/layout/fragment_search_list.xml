@@ -25,38 +25,29 @@
                 android:paddingEnd="0dp"
                 android:paddingBottom="4dp"
                 android:src="@drawable/ic_toolbar_back"
-                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
+            <EditText
+                android:id="@+id/searchEditText"
                 style="@style/toolbarTitleTextView"
                 android:layout_width="0dp"
+                android:textSize="@dimen/_20sp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_16dp"
                 android:layout_marginEnd="@dimen/_10dp"
                 android:ellipsize="end"
+                android:inputType="text"
+                android:lines="1"
+                android:background="@android:color/transparent"
+                android:imeOptions="actionDone"
+                android:hint="@string/search_by_title_or_number"
                 android:maxLines="1"
-                android:text="@string/comic_list"
-                android:textAlignment="viewStart"
-                app:layout_constraintBottom_toBottomOf="@+id/icArrowBackImageView"
-                app:layout_constraintEnd_toStartOf="@id/searchImageView"
-                app:layout_constraintStart_toEndOf="@+id/icArrowBackImageView"
-                app:layout_constraintTop_toTopOf="@id/icArrowBackImageView" />
-
-            <ImageView
-                android:id="@+id/searchImageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_16dp"
-                android:layout_marginEnd="@dimen/_10dp"
-                android:padding="@dimen/_10dp"
-                android:rotation="90"
-                android:src="@drawable/ic_search"
                 android:textAlignment="viewStart"
                 app:layout_constraintBottom_toBottomOf="@+id/icArrowBackImageView"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/icArrowBackImageView"
                 app:layout_constraintTop_toTopOf="@id/icArrowBackImageView" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -67,22 +58,11 @@
             android:layout_height="0dp"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:layout_constraintBottom_toTopOf="@id/paginationProgressBar"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/toolbarContainer"
             app:spanCount="2"
             tools:listitem="@layout/list_item_comic" />
-
-        <ProgressBar
-            android:id="@+id/paginationProgressBar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <include layout="@layout/loading_layout" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
