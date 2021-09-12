@@ -36,7 +36,6 @@ class FavoriteListFragment : BaseFragment<FavoriteViewModel>() {
     @SuppressLint("NotifyDataSetChanged")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        icArrowBackImageView.setOnClickListener { activity?.onBackPressed() }
         setupComicRecyclerView()
         viewModel.getNextFavoriteComics(forceUpdate = true)
         viewModel.comicList.observe(viewLifecycleOwner) {

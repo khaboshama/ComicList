@@ -16,19 +16,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:id="@+id/icArrowBackImageView"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/_30dp"
-                android:paddingStart="@dimen/_16dp"
-                android:paddingTop="4dp"
-                android:paddingEnd="0dp"
-                android:paddingBottom="4dp"
-                android:src="@drawable/ic_toolbar_back"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
             <TextView
                 style="@style/toolbarTitleTextView"
                 android:layout_width="0dp"
@@ -39,10 +26,10 @@
                 android:maxLines="1"
                 android:text="@string/favorite_comic_list"
                 android:textAlignment="viewStart"
-                app:layout_constraintBottom_toBottomOf="@+id/icArrowBackImageView"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/icArrowBackImageView"
-                app:layout_constraintTop_toTopOf="@id/icArrowBackImageView" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
