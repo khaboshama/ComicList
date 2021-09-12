@@ -15,8 +15,8 @@ class ComicRepository : IComicRepository {
     )
 
     override suspend fun getComics(pageNumber: Int, limit: Int, lastItemId: Int?): AppResult<List<ComicItem>> {
-        val offset = ((pageNumber - 1) * limit)
-        val comicItemList = comicsDao.getComicsList(limit = limit, offset = offset)
+        val lastComicId = lastItemId ?: 0
+        val comicItemList = comicsDao.getComicsList(limit = limit, lastItemId = lastComicId)
         if (comicItemList.isEmpty()) return sendComicRequest(lastItemId, limit, pageNumber)
         return AppResult.Success(comicItemList)
     }
@@ -57,8 +57,8 @@ class ComicRepository : IComicRepository {
                 }
             }
         }
-        val offset = ((pageNumber - 1) * limit)
-        val comicItemList = comicsDao.getComicsList(limit = limit, offset = offset)
+        val lastComicId = lastItemId ?: 0
+        val comicItemList = comicsDao.getComicsList(limit = limit, lastItemId = lastComicId)
         return AppResult.Success(comicItemList)
     }
 
