@@ -53,6 +53,19 @@
                 android:src="@drawable/ic_favorite_unselected"
                 android:textAlignment="viewStart"
                 app:layout_constraintBottom_toBottomOf="@+id/icArrowBackImageView"
+                app:layout_constraintEnd_toStartOf="@id/shareImageView"
+                app:layout_constraintTop_toTopOf="@id/icArrowBackImageView" />
+
+            <ImageView
+                android:id="@+id/shareImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16dp"
+                android:layout_marginEnd="@dimen/_10dp"
+                android:padding="@dimen/_10dp"
+                android:src="@drawable/ic_share"
+                android:textAlignment="viewStart"
+                app:layout_constraintBottom_toBottomOf="@+id/icArrowBackImageView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/icArrowBackImageView" />
 

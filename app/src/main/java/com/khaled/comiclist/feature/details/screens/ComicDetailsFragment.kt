@@ -11,6 +11,7 @@ import com.khaled.comiclist.R
 import com.khaled.comiclist.common.BaseFragment
 import com.khaled.comiclist.databinding.FragmentComicDetailsBinding
 import com.khaled.comiclist.feature.details.ComicDetailsViewModel
+import com.khaled.comiclist.utils.ShareUtils.shareTextUrl
 import kotlinx.android.synthetic.main.fragment_comic_details.*
 
 class ComicDetailsFragment : BaseFragment<ComicDetailsViewModel>() {
@@ -33,6 +34,8 @@ class ComicDetailsFragment : BaseFragment<ComicDetailsViewModel>() {
         setupComicItemDataViews()
         icArrowBackImageView.setOnClickListener { activity?.onBackPressed() }
         favoriteImageView.setOnClickListener { viewModel.onFavoriteClicked() }
+        shareImageView.setOnClickListener { viewModel.onShareButtonClicked() }
+        viewModel.shareLiveData.observe(viewLifecycleOwner) { shareTextUrl(getCurrentActivity(), it!!) }
         viewModel.comicItemLiveData.observe(viewLifecycleOwner) {
             titleTextView.text = it.title
             numberTextView.text = it.number.toString()
